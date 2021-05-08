@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FirstPageVC: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var signInFacebookButton: UIButton!
@@ -15,7 +15,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var createAccountButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        signInFacebookButton.layer.cornerRadius = 5
+        signInGoogleButton.layer.cornerRadius = 5
+        createAccountButton.layer.cornerRadius = 5
+
     }
 
 
