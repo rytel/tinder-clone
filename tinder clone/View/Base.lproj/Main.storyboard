@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eEE-Yj-fVk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hZw-FX-HZa">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -297,6 +297,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ze-Rs-g7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1842" y="62"/>
+        </scene>
+        <!--Forgot PasswordVC-->
+        <scene sceneID="g5z-fh-0sE">
+            <objects>
+                <viewController id="hZw-FX-HZa" customClass="ForgotPasswordVC" customModule="tinder_clone" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EU1-KY-JKd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgq-aG-iHO">
+                                <rect key="frame" x="20" y="44" width="71.5" height="22"/>
+                                <state key="normal" title="Button" image="xmark" catalog="system"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0Z-XX-xFW">
+                                <rect key="frame" x="20" y="180" width="374" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Gyy-aZ-sqa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Reset my password"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="deg-Qv-LgV">
+                                <rect key="frame" x="20" y="106" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="uiX-Gf-wSa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g0Z-XX-xFW" firstAttribute="leading" secondItem="uiX-Gf-wSa" secondAttribute="leading" constant="20" id="77X-9D-VDt"/>
+                            <constraint firstItem="Zgq-aG-iHO" firstAttribute="top" secondItem="uiX-Gf-wSa" secondAttribute="top" id="QIr-ZQ-11h"/>
+                            <constraint firstItem="g0Z-XX-xFW" firstAttribute="top" secondItem="deg-Qv-LgV" secondAttribute="bottom" constant="40" id="RLe-ga-scp"/>
+                            <constraint firstItem="Zgq-aG-iHO" firstAttribute="leading" secondItem="uiX-Gf-wSa" secondAttribute="leading" constant="20" id="cYf-ff-6Ex"/>
+                            <constraint firstItem="deg-Qv-LgV" firstAttribute="top" secondItem="Zgq-aG-iHO" secondAttribute="bottom" constant="40" id="d6e-vq-Yat"/>
+                            <constraint firstItem="deg-Qv-LgV" firstAttribute="leading" secondItem="uiX-Gf-wSa" secondAttribute="leading" constant="20" id="iUM-Fc-e5a"/>
+                            <constraint firstItem="uiX-Gf-wSa" firstAttribute="trailing" secondItem="deg-Qv-LgV" secondAttribute="trailing" constant="20" id="oiR-gX-Mkx"/>
+                            <constraint firstItem="uiX-Gf-wSa" firstAttribute="trailing" secondItem="g0Z-XX-xFW" secondAttribute="trailing" constant="20" id="qSl-9q-4bc"/>
+                            <constraint firstItem="g0Z-XX-xFW" firstAttribute="centerX" secondItem="EU1-KY-JKd" secondAttribute="centerX" id="rNk-3W-RuS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="newPasswordTextField" destination="deg-Qv-LgV" id="ecL-7b-5rj"/>
+                        <outlet property="resetPasswordButton" destination="g0Z-XX-xFW" id="BcP-xT-g5u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="81A-fa-zBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2882.608695652174" y="43.526785714285715"/>
         </scene>
     </scenes>
     <resources>
