@@ -10,11 +10,14 @@ import UIKit
 class ForgotPasswordVC: UIViewController {
 
     @IBOutlet weak var newPasswordTextField: UITextField!
-    @IBOutlet weak var resetPasswordButton: UIButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    @IBAction func backPressed(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
     
 

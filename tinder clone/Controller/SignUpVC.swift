@@ -13,11 +13,13 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var signInButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
+    @IBAction func backpressed(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

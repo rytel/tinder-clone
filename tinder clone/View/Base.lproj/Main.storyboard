@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hZw-FX-HZa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cq6-ev-4nH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -34,6 +34,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Sign in with Facebook"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7zj-Xd-B0m">
                                         <rect key="frame" x="20" y="186" width="354" height="50"/>
@@ -43,6 +46,9 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Sign in with Google"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0i7-D1-8jt">
                                         <rect key="frame" x="20" y="286" width="354" height="50"/>
@@ -52,6 +58,12 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Create new account"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <segue destination="DZ0-En-S90" kind="show" id="56e-O8-VqA"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -72,16 +84,14 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HLg-eT-KGX" secondAttribute="trailing" constant="10" id="xHj-Vk-Qls"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="JyU-wF-Mpd"/>
                     <connections>
-                        <outlet property="createAccountButton" destination="0i7-D1-8jt" id="6YA-SD-R0Z"/>
-                        <outlet property="signInFacebookButton" destination="ghj-Du-nc9" id="jrs-WQ-5YW"/>
-                        <outlet property="signInGoogleButton" destination="7zj-Xd-B0m" id="FxT-cK-qRj"/>
                         <outlet property="titleLabel" destination="0FD-fy-hsK" id="1Uc-2d-ftX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="44"/>
+            <point key="canvasLocation" x="902.89855072463774" y="43.526785714285715"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="yr1-f2-8Qo">
@@ -94,6 +104,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8q-vH-21M">
                                 <rect key="frame" x="20" y="44" width="71.5" height="22"/>
                                 <state key="normal" title="Button" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="backpressed:" destination="DZ0-En-S90" eventType="touchUpInside" id="1VI-JZ-jd3"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tqw-71-N28">
                                 <rect key="frame" x="167" y="152" width="80" height="80"/>
@@ -159,6 +172,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="eEE-Yj-fVk" kind="show" id="4oJ-nS-QSt"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -187,18 +203,17 @@
                             <constraint firstItem="Tqw-71-N28" firstAttribute="centerX" secondItem="kAK-JC-b25" secondAttribute="centerX" id="ztC-nT-bgq"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="tkj-VD-adi"/>
                     <connections>
                         <outlet property="avatarImage" destination="Tqw-71-N28" id="Cua-fH-bvy"/>
                         <outlet property="emailTextField" destination="a7i-PL-2us" id="XE5-Zk-62A"/>
                         <outlet property="fullNameTextField" destination="Ri9-ch-CiU" id="mPT-jX-gvw"/>
                         <outlet property="passwordTextField" destination="dcb-bn-0Aq" id="493-Zo-AcD"/>
-                        <outlet property="signInButton" destination="NTo-se-Rhq" id="bwF-kV-bU6"/>
-                        <outlet property="signUpButton" destination="cds-cc-GK8" id="lYa-u1-LjY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tvp-T0-0rN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="62"/>
+            <point key="canvasLocation" x="1886" y="44"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="zCf-GJ-cd8">
@@ -240,6 +255,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxP-iA-v7E">
                                                 <rect key="frame" x="0.0" y="55" width="374" height="30"/>
                                                 <state key="normal" title="Forgot Password"/>
+                                                <connections>
+                                                    <segue destination="hZw-FX-HZa" kind="show" id="eFu-5v-x0g"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -264,6 +282,9 @@
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="SignUpPressed:" destination="eEE-Yj-fVk" eventType="touchUpInside" id="HpL-tN-Atl"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -286,17 +307,15 @@
                             <constraint firstItem="lqq-lU-Ryu" firstAttribute="leading" secondItem="eUu-Qe-acM" secondAttribute="leading" constant="20" id="kGN-eq-5s6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="50T-P7-X3y"/>
                     <connections>
                         <outlet property="emailTextField" destination="1Iz-Nz-ucN" id="VAQ-iu-5iD"/>
-                        <outlet property="forgotPasswordButton" destination="qxP-iA-v7E" id="xo1-2S-ze5"/>
                         <outlet property="passwordTextField" destination="bDp-dL-LKy" id="AHi-vI-xeS"/>
-                        <outlet property="signInButton" destination="5gA-eH-ByE" id="JAh-M1-UMl"/>
-                        <outlet property="signUpButton" destination="3Ju-Z8-MLl" id="Un6-35-Qui"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ze-Rs-g7w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="62"/>
+            <point key="canvasLocation" x="2778" y="44"/>
         </scene>
         <!--Forgot PasswordVC-->
         <scene sceneID="g5z-fh-0sE">
@@ -309,6 +328,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgq-aG-iHO">
                                 <rect key="frame" x="20" y="44" width="71.5" height="22"/>
                                 <state key="normal" title="Button" image="xmark" catalog="system"/>
+                                <connections>
+                                    <action selector="backPressed:" destination="hZw-FX-HZa" eventType="touchUpInside" id="Mfr-xQ-f8c"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g0Z-XX-xFW">
                                 <rect key="frame" x="20" y="180" width="374" height="50"/>
@@ -343,14 +365,32 @@
                             <constraint firstItem="g0Z-XX-xFW" firstAttribute="centerX" secondItem="EU1-KY-JKd" secondAttribute="centerX" id="rNk-3W-RuS"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="w1r-ap-yKA"/>
                     <connections>
                         <outlet property="newPasswordTextField" destination="deg-Qv-LgV" id="ecL-7b-5rj"/>
-                        <outlet property="resetPasswordButton" destination="g0Z-XX-xFW" id="BcP-xT-g5u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="81A-fa-zBN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2882.608695652174" y="43.526785714285715"/>
+            <point key="canvasLocation" x="3788" y="44"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Dbd-UE-tkN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="cq6-ev-4nH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="akE-vP-XfF">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="M2V-mM-PjM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N9d-TQ-hUY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7.2463768115942031" y="43.526785714285715"/>
         </scene>
     </scenes>
     <resources>
