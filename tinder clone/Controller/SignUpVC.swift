@@ -38,7 +38,7 @@ class SignUpVC: UIViewController {
                     "status": ""
                 ]
                 
-                Database.database().reference().child("users").child(authData.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
+                Database.database(url: "https://tinderclone-d9d0c-default-rtdb.europe-west1.firebasedatabase.app").reference().child("users").child(authData.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
                     if error == nil {
                         print("Done")
                     }
