@@ -105,7 +105,7 @@
                                 <rect key="frame" x="20" y="44" width="71.5" height="22"/>
                                 <state key="normal" title="Button" image="xmark" catalog="system"/>
                                 <connections>
-                                    <action selector="backpressed:" destination="DZ0-En-S90" eventType="touchUpInside" id="1VI-JZ-jd3"/>
+                                    <action selector="backPressed:" destination="DZ0-En-S90" eventType="touchUpInside" id="1VI-JZ-jd3"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tqw-71-N28">
@@ -150,6 +150,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signUpPressed:" destination="DZ0-En-S90" eventType="touchUpInside" id="DzT-DR-tcd"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="BjP-eX-V9I">
                                         <rect key="frame" x="0.0" y="256" width="374" height="71"/>
