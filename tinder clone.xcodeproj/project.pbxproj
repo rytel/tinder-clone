@@ -18,6 +18,8 @@
 		6C645E1A2645799200F8CEAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C645E192645799200F8CEAE /* Assets.xcassets */; };
 		6C645E1D2645799200F8CEAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C645E1B2645799200F8CEAE /* LaunchScreen.storyboard */; };
 		6C645E282646C44300F8CEAE /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C645E272646C44300F8CEAE /* SignUpVC.swift */; };
+		6CE3EC05264CA110008A052E /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3EC04264CA110008A052E /* Api.swift */; };
+		6CE3EC08264CA1A0008A052E /* UserApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE3EC07264CA1A0008A052E /* UserApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		6C645E1C2645799200F8CEAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C645E1E2645799200F8CEAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C645E272646C44300F8CEAE /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		6CE3EC04264CA110008A052E /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		6CE3EC07264CA1A0008A052E /* UserApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApi.swift; sourceTree = "<group>"; };
 		89496119B8F40BBE0C2EE751 /* Pods-tinder clone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tinder clone.debug.xcconfig"; path = "Target Support Files/Pods-tinder clone/Pods-tinder clone.debug.xcconfig"; sourceTree = "<group>"; };
 		BFFB77B0DA17F9C799424D00 /* Pods_tinder_clone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tinder_clone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E93DF60AD21C823104146DA1 /* Pods-tinder clone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tinder clone.release.xcconfig"; path = "Target Support Files/Pods-tinder clone/Pods-tinder clone.release.xcconfig"; sourceTree = "<group>"; };
@@ -90,6 +94,7 @@
 				6C645E252646C3A300F8CEAE /* View */,
 				6C645E242646C39A00F8CEAE /* Controller */,
 				6C645E102645799100F8CEAE /* AppDelegate.swift */,
+				6CE3EC06264CA149008A052E /* RESTAPI */,
 				6C645E122645799100F8CEAE /* SceneDelegate.swift */,
 				6C645E192645799200F8CEAE /* Assets.xcassets */,
 				6C645E1B2645799200F8CEAE /* LaunchScreen.storyboard */,
@@ -116,6 +121,15 @@
 				6C645E162645799100F8CEAE /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6CE3EC06264CA149008A052E /* RESTAPI */ = {
+			isa = PBXGroup;
+			children = (
+				6CE3EC04264CA110008A052E /* Api.swift */,
+				6CE3EC07264CA1A0008A052E /* UserApi.swift */,
+			);
+			path = RESTAPI;
 			sourceTree = "<group>";
 		};
 		E8C8CBC605BC32EA21D337D1 /* Pods */ = {
@@ -246,7 +260,9 @@
 				6C645E282646C44300F8CEAE /* SignUpVC.swift in Sources */,
 				6C146CB52648033300D766D9 /* ForgotPasswordVC.swift in Sources */,
 				6C645E112645799100F8CEAE /* AppDelegate.swift in Sources */,
+				6CE3EC08264CA1A0008A052E /* UserApi.swift in Sources */,
 				6C146CB32646FCE400D766D9 /* SignInVC.swift in Sources */,
+				6CE3EC05264CA110008A052E /* Api.swift in Sources */,
 				6C645E132645799100F8CEAE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

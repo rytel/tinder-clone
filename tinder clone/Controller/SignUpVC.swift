@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
+import ProgressHUD
+
 class SignUpVC: UIViewController {
     
     @IBOutlet weak var avatarImage: UIImageView!
@@ -29,55 +31,10 @@ class SignUpVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func signUpPressed(_ sender: UIButton) {
-        guard let imageSelected = self.image else {
-            print("Avatar is nil")
-            return
-        }
-        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
-            return
-        }
-
-        Auth.auth().createUser(withEmail: "test2@gmail.com", password: "123456") { AuthDataResult, error in
-            if error != nil {
-                print(error!.localizedDescription)
-                return
-            }
-            if let authData = AuthDataResult {
-                print(authData.user.email)
-                
-                var dict: Dictionary<String, Any> = [
-                    "uid": authData.user.uid,
-                    "email": authData.user.email,
-                    "profileImageUrl": "",
-                    "status": ""
-                ]
-                
-                let storageRef = Storage.storage().reference(forURL: "gs://tinderclone-d9d0c.appspot.com/")
-                let storageProfileRef = storageRef.child("users").child(authData.user.uid)
-                
-                let metadata = StorageMetadata()
-                metadata.contentType = "image/jpg"
-                storageProfileRef.putData(imageData, metadata: metadata) { StorageMetadata, error in
-                    if error != nil {
-                        print(error?.localizedDescription)
-                        return
-                    }
-                    storageProfileRef.downloadURL { url, error in
-                        if let metaImageUrl = url?.absoluteString {
-                            print(metaImageUrl)
-                            dict["profileImageUrl"] = metaImageUrl
-                            
-                            Database.database(url: "https://tinderclone-d9d0c-default-rtdb.europe-west1.firebasedatabase.app").reference().child("users").child(authData.user.uid).updateChildValues(dict, withCompletionBlock: { (error, ref) in
-                                if error == nil {
-                                    print("Done")
-                                }
-                            })
-                        }
-                    }
-                }
-                
-            }
-        }
+        self.view.endEditing(true)
+        self.validateFields()
+        self.signUp()
+        
     }
     
     // MARK:- func
@@ -88,12 +45,48 @@ class SignUpVC: UIViewController {
         avatarImage.addGestureRecognizer(tapGesture)
     }
     
+    func validateFields() {
+        guard let username = self.fullNameTextField.text, !username.isEmpty else {
+            print("Please enter an username")
+            ProgressHUD.showError("Please enter an username")
+            return
+        }
+        guard let email = self.emailTextField.text, !username.isEmpty else {
+            print("Please enter an email")
+            ProgressHUD.showError("Please enter an email")
+
+            return
+        }
+        guard let password = self.passwordTextField.text, !username.isEmpty else {
+            print("Please enter an password")
+            ProgressHUD.showError("Please enter an password")
+
+            return
+        }
+    }
+    
+    func signUp() {
+        
+        Api.User.signUp(withUsername: self.fullNameTextField.text!, email: self.emailTextField.text!, password: self.passwordTextField.text!, image: self.image) {
+            print("Done")
+
+        } onError: { errorMessage in
+            print(errorMessage)
+        }
+
+        
+    }
+    
     @objc func presentPicker() {
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.allowsEditing = true
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }
