@@ -6,9 +6,6 @@
 //
 
 import UIKit
-//import FirebaseAuth
-//import FirebaseDatabase
-//import FirebaseStorage
 import ProgressHUD
 
 class SignUpVC: UIViewController {
@@ -23,7 +20,7 @@ class SignUpVC: UIViewController {
         setupAvatar()
     }
     
-    // MARK:- buttons
+    // MARK:- button
     @IBAction func backPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -82,6 +79,7 @@ class SignUpVC: UIViewController {
     }
 }
 
+// MARK:- extension
 extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {

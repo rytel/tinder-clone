@@ -12,6 +12,17 @@ import FirebaseAuth
 import ProgressHUD
 
 class UserApi {
+    
+    func signIn(email: String, password: String, onSuccess: @escaping()-> Void, onError: @escaping(_ error: String) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { AuthData, error in
+            if error != nil {
+                onError(error!.localizedDescription)
+                return
+            }
+            onSuccess()
+        }
+    }
+    
     func signUp(withUsername username: String, email: String, password: String, image: UIImage?, onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { AuthDataResult, error in
             if error != nil {
