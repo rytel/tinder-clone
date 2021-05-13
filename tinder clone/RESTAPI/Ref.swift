@@ -33,7 +33,7 @@ class Ref {
         return databaseUser.child(uid)
     }
     
-    //Storage Ref
+    //MARK:- Storage Ref
     
     let storageRoot = Storage.storage().reference(forURL: URL_STORAGE_ROOT)
     var storageProfile: StorageReference {

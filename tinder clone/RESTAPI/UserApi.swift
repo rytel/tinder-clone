@@ -53,8 +53,8 @@ class UserApi {
                 
                 StorageService.savePhoto(username: username, uid: authData.user.uid, data: imageData, metadata: metadata, storageProfileRef: storageProfile, dict: dict) {
                     onSuccess()
-                } onError: { error in
-                    onError(error)
+                } onError: { errorMessage in
+                    onError(errorMessage)
                 }
             }
         }

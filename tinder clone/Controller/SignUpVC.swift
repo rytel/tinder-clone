@@ -42,6 +42,10 @@ class SignUpVC: UIViewController {
     }
     
     func validateFields() {
+        guard avatarImage.image != nil else {
+            ProgressHUD.showError(ERROR_EMPTY_PHOTO)
+            return
+        }
         guard let username = self.fullNameTextField.text, !username.isEmpty else {
             ProgressHUD.showError(ERROR_EMPTY_USERNAME)
             return
@@ -57,12 +61,14 @@ class SignUpVC: UIViewController {
     }
     
     func signUp(onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
-        ProgressHUD.show()
-        Api.User.signUp(withUsername: self.fullNameTextField.text!, email: self.emailTextField.text!, password: self.passwordTextField.text!, image: self.image) {
-            ProgressHUD.dismiss()
-            onSuccess()
-        } onError: { errorMessage in
-            onError(errorMessage)
+        if !self.fullNameTextField.text!.isEmpty && !self.emailTextField.text!.isEmpty && !self.passwordTextField.text!.isEmpty && (self.avatarImage.image != nil) {
+            ProgressHUD.show()
+            Api.User.signUp(withUsername: self.fullNameTextField.text!, email: self.emailTextField.text!, password: self.passwordTextField.text!, image: self.image) {
+                ProgressHUD.dismiss()
+                onSuccess()
+            } onError: { errorMessage in
+                onError(errorMessage)
+            }
         }
     }
     
