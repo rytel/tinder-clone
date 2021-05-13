@@ -20,6 +20,7 @@ let ERROR_EMPTY_PHOTO = "Please choose your profile image"
 let ERROR_EMPTY_EMAIL = "Please enter an email address"
 let ERROR_EMPTY_USERNAME = "Please enter an username"
 let ERROR_EMPTY_PASSWORD = "Please enter a password"
+let SUCCESS_PASSWORD_RESET = "We have just sent you a password reset email. Check your inbox"
 
 class Ref {
     let databaseRoot: DatabaseReference = Database.database(url: "https://tinderclone-d9d0c-default-rtdb.europe-west1.firebasedatabase.app").reference()
