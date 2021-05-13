@@ -6,13 +6,12 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseStorage
+//import FirebaseAuth
+//import FirebaseDatabase
+//import FirebaseStorage
 import ProgressHUD
 
 class SignUpVC: UIViewController {
-    
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var fullNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -22,23 +21,23 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAvatar()
-        
     }
     
     // MARK:- buttons
-    
     @IBAction func backPressed(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     @IBAction func signUpPressed(_ sender: UIButton) {
         self.view.endEditing(true)
         self.validateFields()
-        self.signUp()
-        
+        self.signUp {
+            //switch view
+        } onError: { error in
+            ProgressHUD.showError(error)
+        }
     }
     
     // MARK:- func
-    
     func setupAvatar() {
         avatarImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
@@ -47,34 +46,27 @@ class SignUpVC: UIViewController {
     
     func validateFields() {
         guard let username = self.fullNameTextField.text, !username.isEmpty else {
-            print("Please enter an username")
-            ProgressHUD.showError("Please enter an username")
+            ProgressHUD.showError(ERROR_EMPTY_USERNAME)
             return
         }
-        guard let email = self.emailTextField.text, !username.isEmpty else {
-            print("Please enter an email")
-            ProgressHUD.showError("Please enter an email")
-
+        guard let email = self.emailTextField.text, !email.isEmpty else {
+            ProgressHUD.showError(ERROR_EMPTY_EMAIL)
             return
         }
-        guard let password = self.passwordTextField.text, !username.isEmpty else {
-            print("Please enter an password")
-            ProgressHUD.showError("Please enter an password")
-
+        guard let password = self.passwordTextField.text, !password.isEmpty else {
+            ProgressHUD.showError(ERROR_EMPTY_PASSWORD)
             return
         }
     }
     
-    func signUp() {
-        
+    func signUp(onSuccess: @escaping() -> Void, onError: @escaping(_ errorMessage: String) -> Void) {
+        ProgressHUD.show()
         Api.User.signUp(withUsername: self.fullNameTextField.text!, email: self.emailTextField.text!, password: self.passwordTextField.text!, image: self.image) {
-            print("Done")
-
+            ProgressHUD.dismiss()
+            onSuccess()
         } onError: { errorMessage in
-            print(errorMessage)
+            onError(errorMessage)
         }
-
-        
     }
     
     @objc func presentPicker() {
@@ -88,7 +80,6 @@ class SignUpVC: UIViewController {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
 }
 
 extension SignUpVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
